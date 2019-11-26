@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Forum;
 
 use App\Http\Controllers\Controller;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 
 class ForumController extends BaseController
@@ -14,7 +15,8 @@ class ForumController extends BaseController
      */
     public function index()
     {
-        return view('forum.forum');
+        $threads = Thread::latest()->get();
+        return view('forum.forum', compact('threads'));
     }
 
     /**
