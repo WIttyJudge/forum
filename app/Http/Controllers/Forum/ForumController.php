@@ -26,7 +26,7 @@ class ForumController extends BaseController
      */
     public function create()
     {
-        //
+        return view('forum.create');
     }
 
     /**
@@ -43,12 +43,13 @@ class ForumController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $simpleThread = Thread::where('slug', $slug)->firstOrFail();
+        return view('forum.thread', compact('simpleThread'));
     }
 
     /**
