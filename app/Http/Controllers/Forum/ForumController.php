@@ -15,6 +15,7 @@ class ForumController extends BaseController
      */
     public function index()
     {
+        // $threads = Thread::paginate(20);
         $threads = Thread::latest()->get();
         return view('forum.forum', compact('threads'));
     }
@@ -37,7 +38,7 @@ class ForumController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
