@@ -1,17 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Forum;
+namespace App\Http\Controllers\Chat;
 
-use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Forum\ThreadStoreRequest;
-use App\Models\Thread;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use RealRashid\SweetAlert\Facades\Alert;
-use Str;
 
-class ForumController extends BaseController
+class ChatController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +14,7 @@ class ForumController extends BaseController
      */
     public function index()
     {
-        $threads = Thread::latest()->get();
-        return view('forum.index', compact('threads'));
+        return view('chat.index');
     }
 
     /**
@@ -31,7 +24,7 @@ class ForumController extends BaseController
      */
     public function create()
     {
-        return view('forum.create');
+        //
     }
 
     /**
@@ -40,26 +33,20 @@ class ForumController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ThreadStoreRequest $request)
+    public function store(Request $request)
     {
-        $validation = $request->validated();
-        Thread::create($validation);
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  string $slug
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $simpleThread = Thread::where('slug', $slug)->firstOrFail();
-
-        // $carbon = Carbon::parse($simpleThread->created_at)->formatLocalized('Y-m-d');
-
-        return view('forum.show', compact('simpleThread'));
+        //
     }
 
     /**

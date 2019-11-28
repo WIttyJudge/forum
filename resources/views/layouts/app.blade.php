@@ -31,8 +31,8 @@
                 </div>
 
                 <div class="navbar-end">
-                    <a href="{{route('forum.index')}}" class="navbar-item">Forum</a>
-                    <a href="" class="navbar-item">Chat</a>
+                    <a href="{{ route('forum.index') }}" class="navbar-item">Forum</a>
+                    <a href="{{ route('chat.index') }}" class="navbar-item">Chat</a>
                     <a href="" class="navbar-item">Event</a>
                 </div>
 

@@ -14,9 +14,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::namespace('Chat')
+    ->group(function(){
+        Route::resource('/chat', 'ChatController');
+    });
+
 Route::namespace('Forum')
     ->group(function (){
-       Route::resource('forum', 'ForumController');
+       Route::resource('/forum', 'ForumController');
     });
 
 Route::get('/', 'MainPageController@index');
