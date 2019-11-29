@@ -44,7 +44,6 @@ class ForumController extends BaseController
     {
         $validation = $request->validated();
         Thread::create($validation);
-
     }
 
     /**
