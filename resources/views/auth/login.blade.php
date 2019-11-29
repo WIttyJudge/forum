@@ -46,7 +46,7 @@
         </div>
 
 
-        <div class="">
+        <div>
             <input type="submit" class="button has-background-info has-text-white" value="{{ __('Login') }}">
 
             @if (Route::has('password.request'))

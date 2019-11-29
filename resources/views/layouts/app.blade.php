@@ -39,8 +39,12 @@
                 @guest
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a class="navbar-item" href="{{route('login')}}">Log in</a>
-                            <a class="navbar-item" href="{{route('register')}}">Sign up</a>
+                            @guest
+                                <a class="navbar-item" href="{{ route('login') }}">Log in</a>
+                                <a class="navbar-item" href="{{ route('register') }}">Sign up</a>
+                                @else
+                                    <a class="navbar-item" href="{{ route('logout') }}">Logout</a>
+                            @endguest
                         </div>
                     </div>
                 @endguest
