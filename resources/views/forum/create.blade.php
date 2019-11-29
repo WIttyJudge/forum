@@ -12,7 +12,7 @@
             <div class="control">
                 <input class="input" name="title" type="text" placeholder="Text input">
             </div>
-            <span class="subtitle is-6">Maximum 60 charecters.</span>
+            <p class="help">Maximum 60 charecters.</p>
 
             @if ($errors->has('title'))
                 <span>{{ $errors->first('title') }}</span>
