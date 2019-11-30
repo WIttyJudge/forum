@@ -26,6 +26,7 @@ class ThreadStoreRequest extends FormRequest
         return [
             'title' => 'required|max:60',
             'text' => 'required'
+
         ];
     }
 
