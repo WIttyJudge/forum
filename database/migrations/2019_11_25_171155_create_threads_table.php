@@ -15,7 +15,7 @@ class CreateThreadsTable extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
-//            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id');
 
             $table->string('slug')->unique();
             $table->string('title');
@@ -25,7 +25,7 @@ class CreateThreadsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-//            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

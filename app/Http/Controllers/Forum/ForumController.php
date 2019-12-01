@@ -20,7 +20,7 @@ class ForumController extends BaseController
      */
     public function index()
     {
-        $threads = Thread::latest()->get();
+        $threads = Thread::latest()->with('user')->get();
         return view('forum.index', compact('threads'));
     }
 
@@ -43,7 +43,15 @@ class ForumController extends BaseController
     public function store(ThreadStoreRequest $request)
     {
         $validation = $request->validated();
-        Thread::create($validation);
+        // Thread::create($validation);
+        Thread::create([
+            'slug' => Str::slug(request('title')),
+            'title' => request('title'),
+            'text' => request('title'),
+            'user_id' => auth()->id()
+        ]);
+
+        return redirect('/forum');
     }
 
     /**

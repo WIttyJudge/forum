@@ -11,6 +11,9 @@ $factory->define(Thread::class, function (Faker $faker) {
 	$slug = Str::slug($title);
 
     return [
+        'user_id' => function(){
+            return factory(App\User::class)->create()->id;
+        },
         'title' => $title,
         'slug' => $slug,
         'text' => $faker->sentence(15)

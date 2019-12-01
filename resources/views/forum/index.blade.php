@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="media-content">
-                                <p class="title is-6">John Smith</p>
+                                <p class="title is-6">{{ $thread->user->name }}</p>
                             </div>
                         </div>
                     </div>

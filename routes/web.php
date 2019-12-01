@@ -12,8 +12,6 @@
 */
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::namespace('Chat')
     ->group(function(){
         Route::resource('/chat', 'ChatController');
@@ -22,6 +20,10 @@ Route::namespace('Chat')
 Route::namespace('Forum')
     ->group(function (){
        Route::resource('/forum', 'ForumController');
+
+       Route::get('/forum/create', 'ForumController@create')
+        ->name('forum.create')
+        ->middleware('auth');
     });
 
 Route::get('/', 'MainPageController@index');
