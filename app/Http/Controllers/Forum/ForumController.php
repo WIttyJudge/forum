@@ -8,13 +8,12 @@ use App\Http\Requests\Forum\ThreadStoreRequest;
 use App\Models\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use RealRashid\SweetAlert\Facades\Alert;
 use Str;
 
 class ForumController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * Display a list of a threads.
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,7 +24,7 @@ class ForumController extends BaseController
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form to create a new thread.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +34,7 @@ class ForumController extends BaseController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Stor a newly thread in a storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -48,29 +47,28 @@ class ForumController extends BaseController
             'slug' => Str::slug(request('title')),
             'title' => request('title'),
             'text' => request('text'),
-            'user_id' => auth()->id()
+            'user_id' => auth()->id
         ]);
 
         return redirect('/forum');
     }
 
     /**
-     * Display the specified resource.
+     * Dispaly the specified thread.
      *
-     * @param  string $slug
+     * @param string $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
         $simpleThread = Thread::where('slug', $slug)->firstOrFail();
-
         // $carbon = Carbon::parse($simpleThread->created_at)->formatLocalized('Y-m-d');
 
         return view('forum.show', compact('simpleThread'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for edition the the specified thread.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -81,7 +79,7 @@ class ForumController extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified thread in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -93,7 +91,7 @@ class ForumController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified thread from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
