@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function thread()
     {
-        return $this->hasOne(Thread::class);
+        return $this->hasMany(Thread::class);
     }
 }

@@ -47,7 +47,7 @@ class ForumController extends BaseController
         Thread::create([
             'slug' => Str::slug(request('title')),
             'title' => request('title'),
-            'text' => request('title'),
+            'text' => request('text'),
             'user_id' => auth()->id()
         ]);
 
