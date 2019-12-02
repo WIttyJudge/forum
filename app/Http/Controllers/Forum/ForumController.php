@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Forum;
 
-use Carbon\Carbon;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Forum\ThreadStoreRequest;
+use Str;
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Str;
+use App\Http\Requests\Forum\ThreadStoreRequest;
 
 class ForumController extends BaseController
 {
@@ -47,7 +46,7 @@ class ForumController extends BaseController
             'slug' => Str::slug(request('title')),
             'title' => request('title'),
             'text' => request('text'),
-            'user_id' => auth()->id
+            'user_id' => auth()->id()
         ]);
 
         return redirect('/forum');
