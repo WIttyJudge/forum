@@ -10,7 +10,12 @@ class Thread extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['user_id', 'slug', 'title', 'text'];
+    protected $fillable = [
+        'user_id',
+        'slug',
+        'title',
+        'text'
+    ];
 
     public function user()
     {

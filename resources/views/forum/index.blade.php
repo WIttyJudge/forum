@@ -24,10 +24,14 @@
 
                     <div class="media-content">
                         <div class="content">
-                            <p class="  title is-7 has-text-gray-dark">{{ $thread->user->name }}</p>
+                            <p>
+                                <strong class="title is-size-7 has-text-gray-dark" style="padding-right:10px;">{{ $thread->user->name }}</strong>
+                                <small class="title is-size-7 has-text-grey-darker">{{ Carbon\Carbon::parse($thread->created_at)->diffForHumans() }}</small>
+                            </p>
                         </div>
                     </div>
                 </div>
+
             </div>
             <hr>
 
@@ -36,15 +40,6 @@
 
             @endforelse
 
-            {{-- <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-                    <a class="pagination-previous">Previous</a>
-                    <a class="pagination-next">Next page</a>
-                    <ul class="pagination-list">
-                        @if ($threads->total() > $threads->count())
-                            <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-                        @endif
-                    </ul>
-                </nav> --}}
         </div>
 
         <div class="column is-2">
