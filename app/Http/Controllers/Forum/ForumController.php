@@ -47,8 +47,8 @@ class ForumController extends BaseController
             'slug' => Str::slug(request('title')),
             'title' => request('title'),
             'text' => request('text'),
-            'user_id' => auth()->id
-        ]);
+            'user_id' => auth()->id()
+            ]);
 
         return redirect('/forum');
     }
