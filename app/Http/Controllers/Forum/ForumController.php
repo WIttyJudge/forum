@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Forum;
 
 use Str;
@@ -35,7 +34,7 @@ class ForumController extends BaseController
     /**
      * Stor a newly thread in a storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Requests\Forum\ThreadStoreRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(ThreadStoreRequest $request)
@@ -62,7 +61,6 @@ class ForumController extends BaseController
     {
         $simpleThread = Thread::where('slug', $slug)->firstOrFail();
         // $carbon = Carbon::parse($simpleThread->created_at)->formatLocalized('Y-m-d');
-
         return view('forum.show', compact('simpleThread'));
     }
 

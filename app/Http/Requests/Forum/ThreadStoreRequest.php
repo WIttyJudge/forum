@@ -29,18 +29,4 @@ class ThreadStoreRequest extends FormRequest
         ];
     }
 
-    /**
-     * Custom message for validation
-     *
-     *@return array
-     */
-
-    // public function message()
-    // {
-    //     return [
-    //         'title.required' => 'Email is required!',
-    //         'text.required' => 'Name is required!',
-    //         'title.min' => 'You need min'
-    //     ];
-    // }
 }
