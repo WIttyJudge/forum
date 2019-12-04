@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Moscow',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,6 @@ return [
          */
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...

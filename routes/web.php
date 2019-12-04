@@ -10,9 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace('Event')
+    ->group(function(){
+        Route::get('/events', 'EventController@index')->name('events.index');
+    });
 
 Route::namespace('Chat')
     ->group(function(){
@@ -22,6 +26,10 @@ Route::namespace('Chat')
 Route::namespace('Forum')
     ->group(function (){
        Route::resource('/forum', 'ForumController');
+
+       Route::get('/forum/create', 'ForumController@create')
+        ->name('forum.create')
+        ->middleware('auth');
     });
 
 Route::get('/', 'MainPageController@index');
