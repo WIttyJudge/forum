@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 
-    <div class="media">
+    <div class="media" style="margin-bottom:25px;">
         <div class="media-left">
             <figure class="image is-32x32">
                 <img class="is-rounded" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
@@ -22,10 +22,11 @@
                 </p>
             </div>
         </div>
+    </div>
 
-        <div>
-            <p>{{ $simpleThread->text }}</p>
-        </div>
+
+    <div>
+        <p>{{ $simpleThread->text }}</p>
     </div>
 
     {{--
