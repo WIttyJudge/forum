@@ -23,20 +23,31 @@
             </div>
         </div>
     </div>
-
-
     <div>
         <p>{{ $simpleThread->text }}</p>
     </div>
 
-    {{--
-    <h1>{{ $simpleThread->user->name }}</h1>
-    <div class="content">{{ $simpleThread->text }}</div>
-    <h1>{{ Carbon\Carbon::parse($simpleThread->created_at)->diffForHumans() }} </h1>
+    <hr>
+    <div class="comments" style="margin-bottom: 30px;">
+        <article>
+            <ul>
+                @foreach ($simpleThread->comments as $comment)
+                <li>
+                    <b>{{$comment->created_at->diffForHumans() }}</b><br>
+                    {{ $comment->body }}
+                </li>
+             @endforeach
+        </ul>
+        </article>
+    </div>
 
-    <div class="columns" style="width: 300px;">
-        <h1 class="column title is-size-5">{{$simpleThread->title}}</h1>
-    </div> --}}
 
+    <div>
+        <form action="{{ route('thread.comments', $simpleThread->id)}}" method="POST">
+            @csrf
+            <textarea class="textarea" name="body" placeholder="Your Comments"></textarea>
+            <input type="submit" class="button" value="Add Comment">
+        </form>
+    </div>
 </div>
 @endsection

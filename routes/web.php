@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::post('/thread/{thread}/comments', 'CommentsController@store')->name('thread.comments');
+
 Route::namespace('Event')
     ->group(function(){
         Route::get('/events', 'EventController@index')->name('events.index');
@@ -28,8 +30,11 @@ Route::namespace('Forum')
        Route::resource('/forum', 'ForumController');
 
        Route::get('/forum/create', 'ForumController@create')
-        ->name('forum.create')
-        ->middleware('auth');
+            ->name('forum.create')
+            ->middleware('auth');
+
+        Route::get('/forum/search', 'SearchThreadController@search')
+            ->name('forum.search');
     });
 
 Route::get('/', 'MainPageController@index');

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Comments;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +25,21 @@ class Thread extends Model
     ];
 
     /**
+     * Create a new comment on certain thread.
+     *
+     * @param mixed $body
+     */
+    public function addComment($body)
+    {
+        $this->comments()->create(compact('body'));
+
+        // Comments::create([
+        //     'body' => $body,
+        //     'thread_id' => $this->id
+        // ]);
+    }
+
+    /**
      * Takes the date from the table and converts it for humans.
      *
      * @param mixed $data
@@ -38,5 +54,10 @@ class Thread extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
     }
 }

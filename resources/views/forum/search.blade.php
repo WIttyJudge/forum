@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('app')
 
-@section('title', 'Forum')
+@section('title', 'Search')
 
 @section('content')
 <div class="container">
@@ -46,8 +46,7 @@
             <a href="{{route('forum.create')}}" class="button has-background-info
                 has-text-white-bis" style="margin-bottom:20px;">Create Thread</a>
 
-                <form action="{{ route('forum.index') }}" method="GET">
-                    @csrf
+                <form action="forum.search" method="GET">
                     <input type="search" class="input" name="search" style="margin-bottom:10px;" placeholder="Search what you need">
                     <input type="submit" class="button" value="Search">
                 </form>
@@ -55,3 +54,4 @@
     </div>
 </div>
 @endsection
+

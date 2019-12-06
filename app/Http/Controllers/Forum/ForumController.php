@@ -17,6 +17,12 @@ class ForumController extends BaseController
     public function index()
     {
         $threads = Thread::latest()->with('user')->get();
+
+        if(request('search') && request('search') != ''){
+            $threads = Thread::latest()->with('user')->where('title', 'like','%'.request('search')."%")->get();
+            return view('forum.index', compact('threads'));
+        }
+
         return view('forum.index', compact('threads'));
     }
 

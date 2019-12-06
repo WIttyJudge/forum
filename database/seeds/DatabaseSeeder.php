@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         	// UsersTableSeeder::class,
         ]);
         factory(App\Models\Thread::class, 15)->create();
+        factory(\App\Comments::class, 15)->create();
     }
 }
